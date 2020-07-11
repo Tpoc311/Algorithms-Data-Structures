@@ -6,14 +6,14 @@ public:
     LinkedList();
     ~LinkedList();
 
-    void push_back(T data);
+    void push_back(T value);
     void pop_back();
-    void push_front(T data);
+    void push_front(T value);
     void pop_front();
-    void insert(int index, T data);
+    void insert(int index, T value);
     void removeAt(int index);
-    int get_size(void);
-    void clear(void);
+    int get_size();
+    void clear();
 
 
     template <typename T1>
@@ -21,11 +21,11 @@ public:
     {
     public:
         Node *pNext;
-        T1 data;
+        T1 value;
 
-        Node(T1 data = T1(), Node *pNext = nullptr)
+        Node(T1 value = T1(), Node *pNext = nullptr)
         {
-            this->data = data;
+            this->value = value;
             this->pNext = pNext;
         }
     };
@@ -35,7 +35,7 @@ public:
 };
 
 template <typename T>
-LinkedList<T>::LinkedList(/* args */)
+LinkedList<T>::LinkedList()
 {
     head = nullptr;
     size = 0;
@@ -48,124 +48,151 @@ LinkedList<T>::~LinkedList()
 };
 
 template <typename T>
-void LinkedList<T>::push_back(T data)
+void LinkedList<T>::push_back(T value)
 {
-    if (size == 0)
+    // Add an item to the end of the list.
+    if (this->size == 0)
     {
-        head = new Node<T>(data);
-        size++;
+        this->head = new Node<T>(value);
+        this->size++;
     }else
-    {
-        insert(size, data);
-    }
+        insert(this->size, value);
 }
 
 template <typename T>
 void LinkedList<T>::pop_back()
 {
-    removeAt(size-1);
+    // Remove the back item of the list.
+    removeAt(this->size-1);
 }
 
 template <typename T>
-void LinkedList<T>::push_front(T data)
+void LinkedList<T>::push_front(T value)
 {
-    head = new Node<T>(data, head);
-    size++;
+    // Add item to the front of the list.
+    this->head = new Node<T>(value, this->head);
+    this->size++;
 }
 
 template <typename T>
 void LinkedList<T>::pop_front()
 {
-    if (size == 0)
-    {
+    // Remove the first item from the list.
+    if (this->size == 0)
         return;
-    }else
+    else
     {
-        Node<T> *toDelete = head;
-        head = head->pNext;
+        Node<T> *toDelete = this->head;
+        this->head = this->head->pNext;
         delete toDelete;
-        size--;
+        this->size--;
     }
 }
 
 template <typename T>
-void LinkedList<T>::insert(int index, T data)
+void LinkedList<T>::insert(int index, T value)
 {
-    if(size == 0)
+    // Insert an item at a given index.
+    if(this->size == 0)
+        push_front(value);
+    else if (index > this->size)
+        return;
+    else if (index == 0)
     {
-        push_front(data);
-    }else
+        Node<T> *toInsert = new Node<T>(value, this->head);
+        head = toInsert;
+        this->size++;
+    }
+    else
     {
-        if (index > size)
-        {
-            return;
-        }else
-        {
-            Node<T> *previous = head;
-
-            for(int i = 0; i != index-1; i++)
-            {
-                previous = previous->pNext;
-            }
-            Node<T> *toInsert = new Node<T>(data, previous->pNext);
-            previous->pNext = toInsert;
-
-            size++;
-        }
+        Node<T> *previous = this->head;
+        for(int i = 0; i != index-1; i++)
+            previous = previous->pNext;
+        Node<T> *toInsert = new Node<T>(value, previous->pNext);
+        previous->pNext = toInsert;
+        this->size++;
     }
 }
 
 template <typename T>
 void LinkedList<T>::removeAt(int index)
 {
+    // Remove an item from a given index.
     if (index == 0)
-    {
         pop_front();
-    }else
+    else if (index > this->size)
+        return;
+    else if (this->size == 0)
+        return;
+    else
     {
-        if (size == 0)
-        {
-            return;
-        }else
-        {
-            Node<T> *previous = head;
-            for(int i = 0; i != index-1; i++)
-            {
-                previous = previous->pNext;
-            }
-            Node<T> *toDelete = previous->pNext;
-            previous->pNext = toDelete->pNext;
-            delete toDelete;
-            size--;
-        }
+        Node<T> *previous = this->head;
+        for(int i = 0; i != index-1; i++)
+            previous = previous->pNext;
+        Node<T> *toDelete = previous->pNext;
+        previous->pNext = toDelete->pNext;
+        delete toDelete;
+        this->size--;
     }
 }
 
 template <typename T>
 void LinkedList<T>::clear()
 {
-    while (size != 0)
+    while (this->size != 0)
     {
         pop_front();
     }
-
 }
 
-int main(void){
+template<typename T>
+int LinkedList<T>::get_size() {
+    return this->size;
+}
+
+int main(){
 
     LinkedList<int> lst;
 
+    // Check push_back
+    lst.push_back(0);
+    lst.push_back(1);
     lst.push_back(2);
-    lst.push_back(22);
-    lst.push_front(1);
-    lst.push_front(0);
-    lst.removeAt(0);
-    lst.pop_front();
+
+    // Check pop_back
+    lst.pop_back();
+    lst.pop_back();
     lst.pop_back();
 
-    lst.insert(3, 22);
-    lst.clear();
+    // Check push_front
+    lst.push_front(-3);
+    lst.push_front(-2);
+    lst.push_front(-1);
 
+    // Check pop_front
+    lst.pop_front();
+    lst.pop_front();
+    lst.pop_front();
+
+    // Check insert
+    lst.insert(0, 0);
+    lst.insert(0, -1);
+    lst.insert(2, 1);
+    lst.insert(3, 2);
+    lst.insert(5, 2);
+
+    // Check removeAt
+    lst.removeAt(0);
+    lst.removeAt(0);
+    lst.removeAt(1);
+    lst.removeAt(2);
+
+    // Check get_size
+    int size = lst.get_size();
+
+    // Check clear
+    lst.clear();
+    lst.clear();
 
     return 0;
 }
