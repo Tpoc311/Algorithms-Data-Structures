@@ -1,4 +1,4 @@
-# C++ Linked list.
+# Python Linked list.
 Implementation of <b>Singly Linked List</b> presented here.
 There are methods listed under here which the list contains:
 <ol>

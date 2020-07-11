@@ -2,12 +2,8 @@
 
 // Finding greatest common factor
 // Number for test: 4851, 3003 = 231
-int nod(int a, int b)
+int greatest_common_factor(int a, int b)
 {
-    /* At each step of the cycle, the remainder of dividing a by b is calculated
-    then variable a is assigned the value of variable b
-    variable b is assigned the remainder of dividing a by b
-    the process stops when b = 0 */
     int remainder = 0;
     while (b != 0)
     {
@@ -20,7 +16,7 @@ int nod(int a, int b)
 
 using namespace std;
 
-int main(void)
+int main()
 {
     int a;
     int b;
@@ -28,7 +24,7 @@ int main(void)
     cin >> a;
     cout << "Enter number b: ";
     cin >> b;
-    int out = nod(a, b);
+    int out = greatest_common_factor(a, b);
     cout << "Result: " << out << endl;
 
     return 0;
