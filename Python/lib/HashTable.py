@@ -71,17 +71,3 @@ class HashTable:
             if in_list_key == key:
                 return True, list_idx
         return False, None
-
-
-if __name__ == '__main__':
-    hash_table = HashTable()
-
-    hash_table.insert(key=0, value='abc')
-    hash_table.insert(key=400, value='bca')
-    hash_table.insert(key="111", value='cab')
-    hash_table.insert(key=3, value='abcde')
-    hash_table.insert(key=4, value='eee')
-    hash_table.insert(key=5, value='eeee boy')
-    hash_table.insert(key=26, value='kek')
-    hash_table.remove(key=260)
-    hash_table.traverse()
