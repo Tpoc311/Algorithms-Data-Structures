@@ -1,5 +1,7 @@
-# Finding greatest common factor
-# Number for test: 4851, 3003 = 231
+"""
+Finding greatest common factor
+Number for test: 4851, 3003 = 231
+"""
 
 
 def greatest_common_factor(a, b):
