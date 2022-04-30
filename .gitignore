@@ -1,5 +1,8 @@
+
+# C/C++
 C++/*/.idea
 C++/*/cmake-build-debug
 C++/*/CMakeLists.txt
-Python/*/.idea
-Python/*/Pipfile
+
+# Python
+.idea
