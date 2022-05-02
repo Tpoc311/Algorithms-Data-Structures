@@ -29,7 +29,7 @@ Methods implemented for LinkedList:
     2. Link new node to head node.
     3. Point head to new node.
 
-  ![push_front](https://github.com/Tpoc311/Algorithms-Data-Structures/blob/linked_list/Python/images/LinkedList/push_front.png "Push front illustration")
+  ![push_front](https://github.com/Tpoc311/Algorithms-Data-Structures/blob/master/Python/images/LinkedList/push_front.png "Push front illustration")
 
 * `pop_front` - Removes first node of the list and returns its data.
 
@@ -38,14 +38,14 @@ Methods implemented for LinkedList:
 
   Note: if you use python3 you can skip step 2 cause garbage collector will remove inaccessible node.
 
-  ![pop_front](https://github.com/Tpoc311/Algorithms-Data-Structures/blob/linked_list/Python/images/LinkedList/pop_front.png "Pop front illustration")
+  ![pop_front](https://github.com/Tpoc311/Algorithms-Data-Structures/blob/master/Python/images/LinkedList/pop_front.png "Pop front illustration")
 
 * `push` - Inserts new node after node with given index (N-th node).
     1. Create new node.
     2. Link new node to node which is next to N-th node.
     3. Link N-th node to new node.
 
-  ![push](https://github.com/Tpoc311/Algorithms-Data-Structures/blob/linked_list/Python/images/LinkedList/push.png "Push illustration")
+  ![push](https://github.com/Tpoc311/Algorithms-Data-Structures/blob/master/Python/images/LinkedList/push.png "Push illustration")
 
 * `pop` - Removes node after node with given index and returns its data (N-th node).
     1. Link N-th node to node after next node.
@@ -53,13 +53,13 @@ Methods implemented for LinkedList:
 
   Note: if you use python3 you can skip step 2 cause garbage collector will remove inaccessible node.
 
-  ![pop](https://github.com/Tpoc311/Algorithms-Data-Structures/blob/linked_list/Python/images/LinkedList/pop.png "Pop illustration")
+  ![pop](https://github.com/Tpoc311/Algorithms-Data-Structures/blob/master/Python/images/LinkedList/pop.png "Pop illustration")
 
 * `push_back` - Inserts new node into tail of the list.
     1. Create new node.
     2. Link last node to new node.
 
-  ![push_back](https://github.com/Tpoc311/Algorithms-Data-Structures/blob/linked_list/Python/images/LinkedList/push_back.png "Push back illustration")
+  ![push_back](https://github.com/Tpoc311/Algorithms-Data-Structures/blob/master/Python/images/LinkedList/push_back.png "Push back illustration")
 
 * `pop_back` - Removes last node of the list and returns its data.
     1. Link node before last node to None (Null).
@@ -67,7 +67,7 @@ Methods implemented for LinkedList:
 
   Note: if you use python3 you can skip step 2 cause garbage collector will remove inaccessible node.
 
-  ![pop_back](https://github.com/Tpoc311/Algorithms-Data-Structures/blob/linked_list/Python/images/LinkedList/pop_back.png)
+  ![pop_back](https://github.com/Tpoc311/Algorithms-Data-Structures/blob/master/Python/images/LinkedList/pop_back.png "Pop back illustration")
 
 * `to_list` - Converts the LinkedList to list.
 * `clear` - Removes list.
