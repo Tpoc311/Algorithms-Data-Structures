@@ -24,15 +24,55 @@ Attributes:
 
 Methods implemented for LinkedList:
 
-1. `push_front` - Inserts new node in front of the list.
-![push_front](https://github.com/Tpoc311/Algorithms-Data-Structures/blob/linked_list/Python/images/LinkedList/push_front.png)
-2. `pop_front` - Removes first node of the list and returns its data.
-3. `push` - Inserts new node after node with given index.
-4. `pop` - Removes node after node with given index and returns its data.
-5. `push_back` - Inserts new node into tail of the list.
-6. `pop_back` - Removes last node of the list and returns its data.
-7. `to_list` - Converts the LinkedList to list.
-8. `clear` - Removes list.
-9. `__isListEmpty__` - Checks if the list is empty or not.
-10. `__searchByIndex__` - Searches node with given index.
-11. `__get_size__` - Returns size of the list.
+* `push_front` - Inserts new node in front of the list.
+    1. Create new node.
+    2. Link new node to head node.
+    3. Point head to new node.
+
+  ![push_front](https://github.com/Tpoc311/Algorithms-Data-Structures/blob/linked_list/Python/images/LinkedList/push_front.png "Push front illustration")
+
+* `pop_front` - Removes first node of the list and returns its data.
+
+    1. Link head node to next node.
+    2. Remove first node.
+
+  Note: if you use python3 you can skip step 2 cause garbage collector will remove inaccessible node.
+
+  ![pop_front](https://github.com/Tpoc311/Algorithms-Data-Structures/blob/linked_list/Python/images/LinkedList/pop_front.png "Pop front illustration")
+
+* `push` - Inserts new node after node with given index (N-th node).
+    1. Create new node.
+    2. Link new node to node which is next to N-th node.
+    3. Link N-th node to new node.
+
+  ![push](https://github.com/Tpoc311/Algorithms-Data-Structures/blob/linked_list/Python/images/LinkedList/push.png "Push illustration")
+
+* `pop` - Removes node after node with given index and returns its data (N-th node).
+    1. Link N-th node to node after next node.
+    2. Remove node next to N-th node.
+
+  Note: if you use python3 you can skip step 2 cause garbage collector will remove inaccessible node.
+
+  ![pop](https://github.com/Tpoc311/Algorithms-Data-Structures/blob/linked_list/Python/images/LinkedList/pop.png "Pop illustration")
+
+* `push_back` - Inserts new node into tail of the list.
+    1. Create new node.
+    2. Link last node to new node.
+
+  ![push_back](https://github.com/Tpoc311/Algorithms-Data-Structures/blob/linked_list/Python/images/LinkedList/push_back.png "Push back illustration")
+
+* `pop_back` - Removes last node of the list and returns its data.
+    1. Link node before last node to None (Null).
+    2. Remove last node.
+
+  Note: if you use python3 you can skip step 2 cause garbage collector will remove inaccessible node.
+
+  ![pop_back](https://github.com/Tpoc311/Algorithms-Data-Structures/blob/linked_list/Python/images/LinkedList/pop_back.png)
+
+* `to_list` - Converts the LinkedList to list.
+* `clear` - Removes list.
+* `__isListEmpty__` - Checks if the list is empty or not.
+* `__searchByIndex__` - Searches node with given index.
+* `__get_size__` - Returns size of the list.
+
+For `push`, `pop`, `push_back` and `pop_back` operations you first need iterate till N-th node.
