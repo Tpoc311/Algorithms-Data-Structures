@@ -11,3 +11,6 @@ importing in your own project - feel free to try!
 
 The `tasks` directory contains solving a bunch of problems using common algorithms and data structures (including data
 structures from `lib` module).
+
+## Versions
+1. Python 3.7.1.
