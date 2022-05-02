@@ -52,10 +52,10 @@ class LinkedList:
         :return: data of first node.
         """
         if not self.__isListEmpty__():
-            tmp = self.head
-            self.head = tmp.next
+            data_to_return = self.head
+            self.head = self.head.next
             self.size -= 1
-            return tmp.data
+            return data_to_return
         else:
             return None
 
