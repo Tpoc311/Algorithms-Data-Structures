@@ -25,7 +25,7 @@ Attributes:
 Methods implemented for LinkedList:
 
 1. `push_front` - Inserts new node in front of the list.
-![alt text](https://github.com/Tpoc311/Algorithms-Data-Structures/Python/images/LinkedList/push_front.png)
+![push_front](https://github.com/Tpoc311/Algorithms-Data-Structures/blob/linked_list/Python/images/LinkedList/push_front.png)
 2. `pop_front` - Removes first node of the list and returns its data.
 3. `push` - Inserts new node after node with given index.
 4. `pop` - Removes node after node with given index and returns its data.
