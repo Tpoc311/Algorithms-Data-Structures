@@ -24,3 +24,14 @@ Attributes:
 
 Methods implemented for LinkedList:
 
+1. `push_front` - Inserts new node in front of the the list.
+2. `pop_front` - Removes first node of the list and returns its data.
+3. `push` - Inserts new node after node with given index.
+4. `pop` - Removes node after node with given index and returns its data.
+5. `push_back` - Inserts new node into tail of the list.
+6. `pop_back` - Removes last node of the list and returns its data.
+7. `to_list` - Converts the LinkedList to list.
+8. `clear` - Removes list.
+9. `__isListEmpty__` - Checks if the list is empty or not.
+10. `__searchByIndex__` - Searches node with given index.
+11. `__get_size__` - Returns size of the list.
