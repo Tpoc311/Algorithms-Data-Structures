@@ -1,6 +1,7 @@
 """
-Implementation of simple hash-table. The hash-table stores (key, value) pairs.
+Implementation of hash-table. The hash-table stores (key, value) pairs.
 Collision resolve method: chaining.
+Data structure: list of lists (Python list is technically dynamic array).
 30.04.2022
 
 V.S. Kolesnikov
