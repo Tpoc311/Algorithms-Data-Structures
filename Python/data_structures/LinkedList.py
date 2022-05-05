@@ -79,7 +79,10 @@ class DLinkedList:
         if not self.__isListEmpty__():
             toPop = self.head.data
             self.head = self.head.next
-            self.head.prev = None
+            if self.head is not None:
+                self.head.prev = None
+            else:
+                self.tail = self.head
             self.size -= 1
             return toPop
 
@@ -108,8 +111,9 @@ class DLinkedList:
         :return: data of Node with given index.
         """
         if index == self.__get_size__() - 1:
-            self.pop_back()
-            return
+            return self.pop_back()
+        if index == 0:
+            return self.pop_front()
 
         node_by_index = self.__searchByIndex__(index=index)
         if node_by_index is not None:
@@ -119,7 +123,7 @@ class DLinkedList:
             self.size -= 1
             return toPop
 
-    def push_back(self, data: int) -> NoReturn:
+    def push_back(self, data: Any) -> NoReturn:
         """
         Inserts new node into tail of the list.
         :param data: data for new Node.
@@ -137,10 +141,18 @@ class DLinkedList:
         Removes last node of the list and returns its data.
         :return: data of last Node.
         """
+
+        # if self.__get_size__() == 1:
+        #     toPop = self.tail.data
+        #     self.head = self.tail = None
+
         if not self.__isListEmpty__():
             toPop = self.tail.data
             self.tail = self.tail.prev
-            self.tail.next = None
+            if self.tail is not None:
+                self.tail.next = None
+            else:
+                self.head = self.tail
             self.size -= 1
             return toPop
 
@@ -165,7 +177,8 @@ class DLinkedList:
         :return: data by given index.
         """
         node_by_index = self.__searchByIndex__(index=index)
-        return node_by_index.data
+        if node_by_index is not None:
+            return node_by_index.data
 
     def to_list(self) -> List[Any]:
         """
@@ -338,7 +351,8 @@ class SLinkedList:
         :return: data by given index.
         """
         node_by_index = self.__searchByIndex__(index=index)
-        return node_by_index.data
+        if node_by_index is not None:
+            return node_by_index.data
 
     def to_list(self) -> List[Any]:
         """
