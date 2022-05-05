@@ -100,7 +100,10 @@ class LinkedList:
         :param data: data for new Node.
         :return: NoReturn.
         """
-        self.push(index=self.__get_size__() - 1, data=data)
+        if self.__isListEmpty__():
+            self.push_front(data=data)
+        else:
+            self.push(index=self.__get_size__() - 1, data=data)
 
     def pop_back(self) -> Any:
         """
@@ -108,6 +111,17 @@ class LinkedList:
         :return: data of last Node.
         """
         return self.pop(index=self.__get_size__() - 2)
+
+    def search(self, data: Any) -> Any:
+        if self.__isListEmpty__():
+            print("Error. List is empty.")
+            return
+
+        current = self.head
+        while current is not None:
+            if current.data == data:
+                return current.data
+            current = current.next
 
     def to_list(self) -> List[Any]:
         """
