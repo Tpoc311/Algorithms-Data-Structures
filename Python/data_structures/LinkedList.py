@@ -142,10 +142,6 @@ class DLinkedList:
         :return: data of last Node.
         """
 
-        # if self.__get_size__() == 1:
-        #     toPop = self.tail.data
-        #     self.head = self.tail = None
-
         if not self.__isListEmpty__():
             toPop = self.tail.data
             self.tail = self.tail.prev
@@ -290,7 +286,7 @@ class SLinkedList:
             data_to_return = self.head
             self.head = self.head.next
             self.size -= 1
-            return data_to_return
+            return data_to_return.data
         else:
             return None
 
@@ -310,16 +306,15 @@ class SLinkedList:
 
     def pop(self, index: int) -> Any:
         """
-        Removes node after node with given index and returns its data.
-        :param index: node index to remove after.
-        :return: data of Node after given index.
+        Removes node with given index and returns its data.
+        :param index: node index to remove.
+        :return: data of Node with given index.
         """
-        if self.__isListEmpty__():
-            print("Error. List is empty.")
-            return None
+        if self.__get_size__() == 1 or (index == 0):
+            return self.pop_front()
 
-        node_by_index = self.__searchByIndex__(index=index)
-        if node_by_index.next is None:
+        node_by_index = self.__searchByIndex__(index=index - 1)
+        if node_by_index is None:
             print(f"Error. Node with index {index} is last node.")
             return
 
@@ -335,14 +330,18 @@ class SLinkedList:
         :param data: data for new Node.
         :return: NoReturn.
         """
-        self.push(index=self.__get_size__() - 1, data=data)
+        if self.__isListEmpty__():
+            self.push_front(data=data)
+        else:
+            self.push(index=self.__get_size__() - 1, data=data)
 
     def pop_back(self) -> Any:
         """
         Removes last node of the list and returns its data.
         :return: data of last Node.
         """
-        return self.pop(index=self.__get_size__() - 2)
+        if not self.__isListEmpty__():
+            return self.pop(index=self.__get_size__() - 1)
 
     def get(self, index: int) -> Any:
         """
