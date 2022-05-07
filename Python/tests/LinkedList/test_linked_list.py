@@ -116,7 +116,7 @@ def test_dll_pop_back_links(llist_type, expected_result):
                                                          (SLinkedList, None)])
 def test_dll_push_when_empty(llist_type, expected_result):
     dll = llist_type()
-    assert dll.push(index=0, data=1) == expected_result
+    assert dll.insertAfter(index=0, data=1) == expected_result
 
 
 @pytest.mark.parametrize("llist_type, data_list, index, expected_result",
@@ -130,7 +130,7 @@ def test_dll_push(llist_type, data_list, index, expected_result):
         dll.push_front(data=d)
 
     for data in data_list:
-        dll.push(index=index, data=data)
+        dll.insertAfter(index=index, data=data)
     assert dll.to_list() == expected_result
 
 
