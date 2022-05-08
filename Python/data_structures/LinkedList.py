@@ -21,7 +21,7 @@ pop_back - O(N)
 get - O(N)
 
 Author: V.S. Kolesnikov.
-Edit date: 05.05.2022.
+Edit date: 07.05.2022.
 """
 from typing import NoReturn, Any, List
 
