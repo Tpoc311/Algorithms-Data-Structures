@@ -1,8 +1,10 @@
-
 # C/C++
 C++/*/.idea
 C++/*/cmake-build-debug
 C++/*/CMakeLists.txt
 
-# Python
+# PyCharm
 .idea
+
+# PyTest
+.pytest_cache
